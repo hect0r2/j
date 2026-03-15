@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Robo de Cosquillas - ¡Solo Risas!</title>
+    <!-- Modernizr para detectar compatibilidad con HTML5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    
+    <style>
+        body { 
+            background-color: #e0f7fa; 
+            color: #2c3e50; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            text-align: center;
+        }
+        header { 
+            background: #4fc3f7; 
+            padding: 40px; 
+            border-bottom: 5px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 { 
+            color: #ffffff; 
+            font-size: 3rem; 
+            text-shadow: 2px 2px #29b6f6; 
+            animation: cosquillas 1.5s infinite;
+        }
+        @keyframes cosquillas {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        .broma-tag { color: #01579b; font-weight: bold; }
+        
+        section { 
+            max-width: 600px; 
+            margin: 30px auto; 
+            padding: 30px; 
+            background: #ffffff; 
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        article { 
+            background: #fff9c4; 
+            padding: 15px; 
+            margin-bottom: 20px; 
+            border-radius: 15px;
+            color: #f57f17;
+        }
+
+        form { display: flex; flex-direction: column; text-align: left; }
+        label { margin-top: 15px; font-weight: bold; color: #0288d1; }
+        
+        input { 
+            padding: 12px; margin-top: 5px; 
+            border: 2px solid #b3e5fc; 
+            border-radius: 10px;
+        }
+
+        .btn-enviar { 
+            background: #ff4081; 
+            color: white; 
+            padding: 15px; 
+            margin-top: 30px; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 1.3rem; 
+            font-weight: bold;
+            border-radius: 50px;
+        }
+        .btn-enviar:hover { background: #f50057; }
+
+        #pantalla-proceso {
+            display: none; 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.95); 
+            color: #ff4081;
+            flex-direction: column; align-items: center; justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        #pantalla-proceso.mostrar {
+            display: flex;
+            opacity: 1;
+        }
+
+        footer { padding: 30px; color: #b0bec5; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Estructura semántica con header -->
+    <header>
+        <h1>ROBO DE COSQUILLAS</h1>
+        <p class="broma-tag">Esta página es una broma</p>
+    </header>
+
+    <section>
+        <!-- Elemento article para contenido autónomo -->
+        <article>
+            <p>¡Va a ser tan rápido que no se van a dar cuenta que pasó!</p>
+        </article>
+
+        <form id="form-final">
+            <!-- Atributo autofocus para activar el campo al cargar -->
+            <label for="nombre">Tu nombre de la víctima:</label>
+            <input id="nombre" type="text" placeholder="Ej: Capitán Carcajada" autofocus required>
+
+            <!-- Input tipo number para añadir o restar valores -->
+            <label for="edad">¿Edad de la víctima? (1-60):</label>
+            <input id="edad" type="number" min="1" max="60" value="15">
+
+            <!-- Input tipo color para elegir el estilo -->
+            <label for="color">Color de la persona:</label>
+            <input id="color" type="color" value="#ff4081">
+
+            <input type="submit" class="btn-enviar" value="ACEPTAR">
+        </form>
+    </section>
+
+    <!-- Pantalla de proceso solicitada -->
+    <div id="pantalla-proceso">
+        <h2 style="font-size: 3.5rem;">ESTÁ EN PROCESO...</h2>
+        <p>Estamos enviando a los agentes de la risa a tu ubicación.</p>
+    </div>
+
+    <!-- Elemento footer para información de cierre -->
+    <footer>
+        <p>&copy; 2026 Robo de Cosquillas - Estructurado con HTML5.</p>
+    </footer>
+
+    <script>
+        document.getElementById('form-final').onsubmit = function(e) {
+            e.preventDefault();
+            const pantalla = document.getElementById('pantalla-proceso');
+            pantalla.classList.add('mostrar');
+        };
+
+        // Detección de soporte con Modernizr
+        if (Modernizr.canvas) {
+            console.log("Navegador listo para la diversión.");
+        }
+    </script>
+</body>
+</html>
