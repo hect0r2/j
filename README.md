@@ -132,7 +132,7 @@
 
     <!-- Elemento footer para información de cierre -->
     <footer>
-        <p>&copy; 2026 Robo de Cosquillas - Estructurado con HTML5.</p>
+        <p>&copy;  Robo de Cosquillas </p>
     </footer>
 
     <script>
